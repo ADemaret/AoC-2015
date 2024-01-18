@@ -6,7 +6,7 @@ use std::time::Instant;
 //use crate::utils::math;
 
 pub fn main() {
-    println!("-- Advent of Code - Day 04 - Part 1 --");
+    println!("-- Advent of Code - Day 04 - Part 2 --");
     let now = Instant::now();
 
     let input = "ckczppom".to_string();

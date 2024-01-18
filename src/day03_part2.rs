@@ -6,7 +6,7 @@ use std::{collections::HashSet, time::Instant};
 //use crate::utils::math;
 
 pub fn main() {
-    println!("-- Advent of Code - Day 03 - Part 1 --");
+    println!("-- Advent of Code - Day 03 - Part 2 --");
     let now = Instant::now();
 
     //let input = include_str!("../assets/day03_input_demo1.txt");
