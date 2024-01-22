@@ -6,6 +6,7 @@ version = 3
 name = "aoc-2015"
 version = "0.1.0"
 dependencies = [
+ "combinatorial",
  "divisors",
  "md5",
  "serde_json",
@@ -17,6 +18,12 @@ name = "autocfg"
 version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
+
+[[package]]
+name = "combinatorial"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7bdaf2f71259174671afdb568c8d911635472605f7f4be8b6c08bcc69ea3ed84"
 
 [[package]]
 name = "divisors"
