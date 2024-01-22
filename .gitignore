@@ -4,4 +4,3 @@ assets/*test*
 enonces
 src/*test*.rs
 .vscode/launch.json
-Cargo.lock
