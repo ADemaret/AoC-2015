@@ -34,15 +34,15 @@ fn get_answer() -> Option<isize> {
     // parse input
     let boss = Players {
         hit_points: 58,
-        damage: 9,
+        damage: 9, 
         mana: 0,
         armor: 0,
     };
 
     let player = Players {
-        hit_points: 50,
+        hit_points: 50, 
         damage: 0,
-        mana: 500,
+        mana: 500, 
         armor: 0,
     };
 
@@ -61,7 +61,7 @@ fn get_answer() -> Option<isize> {
         &temp_armor,
         &temp_damage,
         &temp_mana,
-        debug_cost,
+        //debug_cost,
     )
 }
 
@@ -76,11 +76,11 @@ fn fight(
     lt_shield: &(isize, usize), // value, last turn
     lt_poison: &(isize, usize),
     lt_recharge: &(isize, usize),
-    debug_cost: isize,
+    //debug_cost: isize,
 ) -> Option<isize> {
     // trouvé
     if boss.hit_points <= 0 {
-        println!("boss is dead at cost {} after {} turns", debug_cost, turn);
+        //println!("boss is dead at cost {} after {} turns", debug_cost, turn);
         return Some(0);
     }
     if player.hit_points <= 0 {
@@ -94,7 +94,7 @@ fn fight(
     let spells = ["MMiss", "Drain", "Shield", "Poison", "Recharge"];
 
     'all_spells: for spell in spells.iter().rev() {
-        // for _ in 0..*turn {
+            // for _ in 0..*turn {
         //     print!("  ");
         // }
         // println!("{} : {}", turn, spell);
@@ -106,7 +106,7 @@ fn fight(
         let mut new_lt_recharge = *lt_recharge;
         let mut new_boss = boss.clone();
         let mut new_player = player.clone();
-        let mut new_debug_cost = debug_cost;
+        //let mut new_debug_cost = debug_cost;
 
         // avant même un choix, on épuise (peut-être) les spells longs
         // on paie le spell (si possible)
@@ -117,10 +117,7 @@ fn fight(
             new_player.armor = new_lt_shield.0;
             new_lt_shield.1 -= 1; // on consomme un effet
         }
-        if new_lt_poison.1 > 0 {
-            new_boss.hit_points -= new_lt_poison.0;
-            new_lt_poison.1 -= 1; // on consomme un effet
-        }
+        // poison = après avoir su payer le spell
         if new_lt_recharge.1 > 0 {
             new_player.mana += new_lt_recharge.0;
             new_lt_recharge.1 -= 1; // on consomme un effet
@@ -140,13 +137,13 @@ fn fight(
                     // println!("refused");
                     continue 'all_spells;
                 } else {
-                    new_lt_shield = (7, 6);
+                    new_lt_shield = (7, 5); // 5 turn, not 6, to follow same logic
                 }
             }
             "Poison" => {
                 cost = 173;
                 // si le précédent est encore actif, ce spell est refusé
-                if new_lt_poison.1 > 0 {
+                if new_lt_poison.1 > 1 { // s'il est à un on va l'utiliser immédiatement ci-dessous
                     // println!("refused");
                     continue 'all_spells;
                 } else {
@@ -175,7 +172,13 @@ fn fight(
         } else {
             // on paie le spell
             new_player.mana -= cost;
-            new_debug_cost += cost;
+            //new_debug_cost += cost;
+        }
+
+        // poison ici !! (pour ne pas tuer le boss si on n'a plus de mana)
+        if new_lt_poison.1 > 0 {
+            new_boss.hit_points -= new_lt_poison.0;
+            new_lt_poison.1 -= 1; // on consomme un effet
         }
         
         // other effects
@@ -192,10 +195,10 @@ fn fight(
 
         // si ce qui précède a tué le boss, il ne se bat plus
         if new_boss.hit_points <= 0 {
-            println!(
-                "boss is dead at cost {} after {} turns",
-                new_debug_cost, turn
-            );
+            // println!(
+            //     "boss is dead at cost {} after {} turns",
+            //     new_debug_cost, turn
+            // );
             return Some(cost);
         }
 
@@ -217,10 +220,10 @@ fn fight(
 
         // si ce qui précède a tué le boss, il ne se bat plus
         if new_boss.hit_points <= 0 {
-            println!(
-                "boss is dead at cost {} after {} turns",
-                new_debug_cost, turn
-            );
+            // println!(
+            //     "boss is dead at cost {} after {} turns",
+            //     new_debug_cost, turn
+            // );
             return Some(cost);
         }
 
@@ -238,7 +241,7 @@ fn fight(
             &new_lt_shield,
             &new_lt_poison,
             &new_lt_recharge,
-            new_debug_cost,
+            //new_debug_cost,
         );
         *turn -= 1;
 
