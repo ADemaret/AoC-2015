@@ -253,12 +253,12 @@ fn fight(
     min_mana
 }
 
-// #[cfg(test)]
-// mod tests {
-//     use super::*;
+#[cfg(test)]
+mod tests {
+    use super::*;
 
-//     #[test]
-//     fn test_total() {
-//         assert_eq!(get_answer(), Some(78));
-//     }
-// }
+    #[test]
+    fn test_total() {
+        assert_eq!(get_answer(), Some(1269));
+    }
+}
