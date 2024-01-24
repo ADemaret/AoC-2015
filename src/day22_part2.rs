@@ -6,7 +6,7 @@ use crate::utils::pause;
 //use crate::utils::math;
 
 pub fn main() {
-    println!("-- Advent of Code - Day 22 - Part 1 --");
+    println!("-- Advent of Code - Day 22 - Part 2 --");
     let now = Instant::now();
 
     let answer = get_answer();
@@ -83,7 +83,8 @@ fn fight(
         //println!("boss is dead at cost {} after {} turns", debug_cost, turn);
         return Some(0);
     }
-    if player.hit_points <= 0 {
+    if player.hit_points <= 2 {
+        // part 2
         //println!("player is dead");
         return None;
     }
@@ -107,6 +108,9 @@ fn fight(
         let mut new_boss = boss.clone();
         let mut new_player = player.clone();
         //let mut new_debug_cost = debug_cost;
+
+        // part2
+        new_player.hit_points -= 1;
 
         // avant même un choix, on épuise (peut-être) les spells longs
         // on paie le spell (si possible)
