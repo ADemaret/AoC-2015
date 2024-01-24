@@ -47,37 +47,37 @@ fn get_answer(input: &str) -> isize {
     let mut register_b = 0;
     let mut current = 0;
         while  current < instructions.len(){
-        println!("line {} : {:?}", current, instructions[current]);
+        // println!("line {} : {:?}", current, instructions[current]);
                 match instructions[current].0 {
             "hlf" => {
                 if instructions[current].1 == "a" {
                     assert!(register_a%2==0);
                     register_a = ((register_a as f64) / 2.0) as isize;
-                    println!(" register_a => {}", register_a);
+                    // println!(" register_a => {}", register_a);
                 } else {
                     assert!(register_b%2==0);
                     register_b = ((register_b as f64) / 2.0) as isize;
-                    println!(" register_b => {}", register_b);
+                    // println!(" register_b => {}", register_b);
                 }
                 current += 1;
             }
             "tpl" => {
                 if instructions[current].1 == "a" {
                     register_a *= 3;
-                    println!(" register_a => {}", register_a);
+                    // println!(" register_a => {}", register_a);
                 } else {
                     register_b *= 3;
-                    println!(" register_b => {}", register_b);
+                    // println!(" register_b => {}", register_b);
                 }
                 current += 1;
             }
             "inc" => {
                 if instructions[current].1 == "a" {
                     register_a += 1;
-                    println!(" register_a => {}", register_a);
+                    // println!(" register_a => {}", register_a);
                 } else {
                     register_b += 1;
-                    println!(" register_b => {}", register_b);
+                    // println!(" register_b => {}", register_b);
                 }
                 current += 1;
             }
@@ -92,7 +92,7 @@ fn get_answer(input: &str) -> isize {
                     let new_current = current as isize + instructions[current].2;
                     current = new_current as usize;                    
                 } else {
-                    println!("cond not satisfied");
+                    // println!("cond not satisfied");
                     current += 1;
                 }
             }
@@ -103,7 +103,7 @@ fn get_answer(input: &str) -> isize {
                     let new_current = current as isize + instructions[current].2;
                     current = new_current as usize;                    
                 } else {
-                    println!("cond not satisfied");
+                    // println!("cond not satisfied");
                     current += 1;
                 }
             }
@@ -118,11 +118,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_total() {
-        assert_eq!(
-            get_answer(include_str!("../assets/day23_input_demo1.txt")),
-            2
-        );
-        assert_eq!(get_answer(include_str!("../assets/day23_input.txt")), 272);
+    fn test_total() {        
+        assert_eq!(get_answer(include_str!("../assets/day23_input.txt")), 334);
     }
 }

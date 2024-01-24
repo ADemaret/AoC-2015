@@ -47,7 +47,7 @@ fn get_answer(input: &str) -> isize {
     let mut register_b = 0;
     let mut current = 0;
     while  current < instructions.len(){
-        println!("line {} : {:?}", current, instructions[current]);
+        // println!("line {} : {:?}", current, instructions[current]);
         match instructions[current].0 {
             "hlf" => {
                 if instructions[current].1 == "a" {
