@@ -46,17 +46,17 @@ fn get_answer(input: &str) -> isize {
     let mut register_a = 1;
     let mut register_b = 0;
     let mut current = 0;
-    while  current < instructions.len(){
+        while  current < instructions.len(){
         println!("line {} : {:?}", current, instructions[current]);
-        match instructions[current].0 {
+                match instructions[current].0 {
             "hlf" => {
                 if instructions[current].1 == "a" {
                     assert!(register_a%2==0);
-                    register_a = ((register_a as f32) / 2.0) as isize;
+                    register_a = ((register_a as f64) / 2.0) as isize;
                     println!(" register_a => {}", register_a);
                 } else {
                     assert!(register_b%2==0);
-                    register_b = ((register_b as f32) / 2.0) as isize;
+                    register_b = ((register_b as f64) / 2.0) as isize;
                     println!(" register_b => {}", register_b);
                 }
                 current += 1;
@@ -110,7 +110,7 @@ fn get_answer(input: &str) -> isize {
             _ => unreachable!(),
         }
     }
-    register_b
+        register_b
 }
 
 #[cfg(test)]
