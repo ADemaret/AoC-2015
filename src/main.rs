@@ -50,10 +50,10 @@ mod utils;
 // mod day21_part2;
 // mod day22_part1;
 // mod day22_part2;
-mod day23_part1;
-mod day23_part2;
-// mod day24_part1;
-// mod day24_part2;
+// mod day23_part1;
+// mod day23_part2;
+mod day24_part1;
+mod day24_part2;
 // mod day25_part1;
 // mod day25_part2;
 
@@ -104,10 +104,10 @@ fn main() -> io::Result<()> {
     // day21_part2::main();
     // day22_part1::main();
     // day22_part2::main();
-    day23_part1::main();
-    day23_part2::main();
-    // day24_part1::main();
-    // day24_part2::main();
+    // day23_part1::main();
+    // day23_part2::main();
+    day24_part1::main();
+    day24_part2::main();
     // day25_part1::main();
     // day25_part2::main();
     
