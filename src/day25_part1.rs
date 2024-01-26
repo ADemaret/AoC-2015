@@ -1,4 +1,4 @@
-use std::{f64::MAX_10_EXP, time::Instant};
+use std::time::Instant;
 
 // personal functions
 //use crate::utils::grid2d;
@@ -9,10 +9,7 @@ pub fn main() {
     println!("-- Advent of Code - Day 25 - Part 1 --");
     let now = Instant::now();
 
-    //let input = include_str!("../assets/day25_input_demo1.txt");
-    //let input = include_str!("../assets/day25_input.txt");
-
-    println!("La réponse est {}", get_answer(/*input*/));
+    println!("La réponse est {}", get_answer());
 
     let elapsed1 = now.elapsed();
     println!("Elapsed: {:.2?}", elapsed1);
@@ -49,7 +46,6 @@ mod tests {
 
     #[test]
     fn test_total() {
-        // assert_eq!(get_answer(include_str!("../assets/day25_input_demo1.txt")), 0);
         assert_eq!(get_answer(), 8997277);
     }
 }
